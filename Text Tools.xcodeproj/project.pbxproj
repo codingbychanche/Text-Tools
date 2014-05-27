@@ -1,0 +1,211 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FAED9E5619352B0C0033657C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = FAED9E5519352B0C0033657C /* main.c */; };
+		FAED9E5819352B0C0033657C /* Text_Tools.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FAED9E5719352B0C0033657C /* Text_Tools.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FAED9E4F19352B0C0033657C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				FAED9E5819352B0C0033657C /* Text_Tools.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FAED9E5119352B0C0033657C /* Text Tools */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Text Tools"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAED9E5519352B0C0033657C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		FAED9E5719352B0C0033657C /* Text_Tools.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Text_Tools.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAED9E4E19352B0C0033657C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAED9E4619352B0C0033657C = {
+			isa = PBXGroup;
+			children = (
+				FAED9E5419352B0C0033657C /* Text Tools */,
+				FAED9E5219352B0C0033657C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAED9E5219352B0C0033657C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAED9E5119352B0C0033657C /* Text Tools */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAED9E5419352B0C0033657C /* Text Tools */ = {
+			isa = PBXGroup;
+			children = (
+				FAED9E5519352B0C0033657C /* main.c */,
+				FAED9E5719352B0C0033657C /* Text_Tools.1 */,
+			);
+			path = "Text Tools";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAED9E5019352B0C0033657C /* Text Tools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAED9E5B19352B0C0033657C /* Build configuration list for PBXNativeTarget "Text Tools" */;
+			buildPhases = (
+				FAED9E4D19352B0C0033657C /* Sources */,
+				FAED9E4E19352B0C0033657C /* Frameworks */,
+				FAED9E4F19352B0C0033657C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Text Tools";
+			productName = "Text Tools";
+			productReference = FAED9E5119352B0C0033657C /* Text Tools */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAED9E4819352B0C0033657C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Kappler Mensch & Schneider";
+			};
+			buildConfigurationList = FAED9E4B19352B0C0033657C /* Build configuration list for PBXProject "Text Tools" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FAED9E4619352B0C0033657C;
+			productRefGroup = FAED9E5219352B0C0033657C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAED9E5019352B0C0033657C /* Text Tools */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAED9E4D19352B0C0033657C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAED9E5619352B0C0033657C /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FAED9E5919352B0C0033657C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FAED9E5A19352B0C0033657C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FAED9E5C19352B0C0033657C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FAED9E5D19352B0C0033657C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAED9E4B19352B0C0033657C /* Build configuration list for PBXProject "Text Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAED9E5919352B0C0033657C /* Debug */,
+				FAED9E5A19352B0C0033657C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAED9E5B19352B0C0033657C /* Build configuration list for PBXNativeTarget "Text Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAED9E5C19352B0C0033657C /* Debug */,
+				FAED9E5D19352B0C0033657C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAED9E4819352B0C0033657C /* Project object */;
+}
