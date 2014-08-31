@@ -10,13 +10,12 @@
  *                                                                                          
  * Version:
  *
- * V1.0 Beta B.F. 3.5.2014   
- *
- * Änderungen:
- *
- * - keine seit 3.5.2014
+ * V1.2 Beta B.F. 1.9.2014   
  *
  * Puplished:
+ *
+ * - 1.9.2014   V1.2 Beta
+ *              Auf GitHub veröfentlicht
  *
  * - 23.5.2014  V1.1 Beta
  *              Einige Rechtschreibefehler in der Benutzerführung geändert
@@ -36,11 +35,10 @@ FILE *f;        // Eingabe- Datei
 
 /*
  * Die Folgende Struktur enthält die gefundenen Wörter und
- * einen Zähler der angibt, wie oft diese in der Dtaei enthlten sind.
+ * einen Zähler der angibt, wie oft diese in der Datei enthlten sind.
  *
  * Der Zeiger '*next' zeigt auf den Speicherplatz, unter dem die Folge-
- * struktur abgelegt ist. Es handelt sich um eine Liste aus verketteten
- * Strukturen.
+ * struktur abgelegt ist. 
  */
 
 struct tags 
@@ -60,7 +58,7 @@ struct tags *zeiger;
 int  main(int argc, const char * argv[])
 {
     
-    int i,j;            // Allgemeines
+    int i;              // Allgemeines
     int tags=0;         // Wort- Zähler
     
     char zeichen;       // Ein einzelnes Zeichen
@@ -69,7 +67,7 @@ int  main(int argc, const char * argv[])
     
     if (argc<=1)
     {
-        printf ("wordcnt V1.1 Beta B.F. 23.5.2014\n");
+        printf ("wordcnt V1.2 Beta B.F. 1.9.2014\n");
         printf ("Listet die Häufigkeit von Wörtern\n\n");
         printf ("Usage: wordcnt [Pfad]\n");
         return(0);
@@ -192,7 +190,7 @@ int  main(int argc, const char * argv[])
      */
     
     fclose (f);
-    printf ("%d unterschiedliche Wörter von isgesammt %d gefunden\n",tags,tag_total);
+    printf ("%d unterschiedliche Wörter von insgesammt %d gefunden\n",tags,tag_total);
     
     ausgabe();
     

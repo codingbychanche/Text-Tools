@@ -1,33 +1,51 @@
 /*                                                                                           
- * Erkennt mit '#' markierte Wörter oder einzelne Zeichen und zählt diese  
+ * wordcnt.c
  *
- * Erster Versuch und Anwendung zum Thema verkettete Listen
+ * Filtert Wörter aus einer Textdatei und zählt, wie oft diese darin vorkommen.
+ * Ausgabe ist eine Liste bestehend aus den gefunden Wörtern und deren Häufigkeit
  *
+ * Wörter sind: Alle aus Groß- und Kleinbuchstaben bestehenden Zeichenketten die entweder
+ * durch ein Leerzeichen, ein gültiges Satzzeichen (, . ; ) ein 'LF'= Line Feed, oder 
+ * ein nicht gültiges Zeichen abgeschlossen werden.
+ *                                                                                          
  * Version:
  *
- * V1.2 Beta B.F. 1.9.2014  
+ * V1.0 Beta B.F. 3.5.2014   
  *
  * Änderungen:
  *
- * - 1.9.2014 auf GitHub veröffentlicht. Kommentare angepasst, Source aufgeräumt => Version 1.2 Beta
- *                                                                        
+ * - keine seit 3.5.2014
+ *
+ * Puplished:
+ *
+ * - 23.5.2014  V1.1 Beta
+ *              Einige Rechtschreibefehler in der Benutzerführung geändert
+ *
+ * - 3.5.2014   V1.0 Beta
+ *              On my own Mac: /bin/wordcnt
+ *              Kann jetzt von der Shell aus als Komando genutzt werden :-)
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int i,j;      // Allgemeines
-int tags=0;   // Tag Zähler
-FILE *f;      // Datei
+#define MAX 255 // Maximale Länge eines Wortes
+
+FILE *f;        // Eingabe- Datei
 
 
 /*
- * Strukturen
+ * Die Folgende Struktur enthält die gefundenen Wörter und
+ * einen Zähler der angibt, wie oft diese in der Dtaei enthlten sind.
+ *
+ * Der Zeiger '*next' zeigt auf den Speicherplatz, unter dem die Folge-
+ * struktur abgelegt ist. Es handelt sich um eine Liste aus verketteten
+ * Strukturen.
  */
 
 struct tags 
 {
-    char tag [255];
+    char tag [MAX];
     int count;
     struct tags *next;
 };
@@ -41,12 +59,19 @@ struct tags *zeiger;
 
 int  main(int argc, const char * argv[])
 {
-    char zeichen;
-    char tag[255];
+    
+    int i,j;            // Allgemeines
+    int tags=0;         // Wort- Zähler
+    
+    char zeichen;       // Ein einzelnes Zeichen
+    char tag[255];      // Ein gültiges Wort
+    int tag_total;      // Soviele Wörter haben wir insgesammt gefunden
     
     if (argc<=1)
     {
-        printf ("Datei?\n");
+        printf ("wordcnt V1.1 Beta B.F. 23.5.2014\n");
+        printf ("Listet die Häufigkeit von Wörtern\n\n");
+        printf ("Usage: wordcnt [Pfad]\n");
         return(0);
     }
     
@@ -56,13 +81,16 @@ int  main(int argc, const char * argv[])
         return (0);
     }
     
-    printf ("Prüfe das %s\n",argv[1]);
+    printf ("Prüfe Datei: %s\n",argv[1]);
+    
     
     /*
      * Hauptschleife
      *
      * Datei, zeichenweise lesen bis EOF
      */
+    
+    i=0;
     
     do
     { //0
@@ -72,20 +100,53 @@ int  main(int argc, const char * argv[])
         zeichen=fgetc (f);
         
         /*
-         * Das #- Zeichen kennzeichnet, es handelt sich um einen Tag.
+         * Wenn das eben gelesene Zeichen ein gültiges Zeichen ist,
+         * dann lese die Zeichenkette, da es sich dann möglicherweise
+         * um ein Wort handelt :-)
          *
-         * Nun lesen wir ab dem ersten Zeichen nach dem '#' bis ein
-         * Leerzeichen gefunden wurde, oder eine neue Zeile beginnt
+         * Nun lesen wir ab dem ersten Zeichen nach dem ersten gültigen Zeichen
+         * bis ein Leerzeichen gefunden wurde, oder eine neue Zeile beginnt
          */
         
-        if (zeichen=='#')
+        if ((zeichen >='A') && (zeichen<='Z') ||
+            (zeichen >='a') && (zeichen<='z'))   // Gültiges Zeichen
         { //1
             
-            while ((zeichen!=' ') && (zeichen!='\n'))
+            i=0;
+            
+            /*
+             * Nun, so lange keines der unten gelisteten Zeichen auftaucht,
+             * handelt es sich um ein gültiges Wort in einer beliebigen Sprache
+             */
+            
+            while ((zeichen!=' ')   && 
+                   (zeichen!='\n')  && 
+                   (zeichen!='.')   &&
+                   (zeichen!=',')   &&
+                   (zeichen!=';')   &&
+                   (zeichen!=':')   &&
+                   (zeichen!='-')   &&
+                   (zeichen!='(')   &&
+                   (zeichen!=')')   &&
+                   (zeichen!='=')   &&
+                   (zeichen!='\t'))
+                
             { //2
-                zeichen=fgetc(f);
+                
+                /*
+                 * Wenn das erste Zeichen ein Großbuchstaben ist, dann 
+                 * wandeln wir den in einen Kleinbuchstaben
+                 * Damit wäre dann die Vergleichbarkeit hergestellt
+                 */
+                
+                if ((zeichen>='A') && (zeichen <='Z')) zeichen=zeichen+32;
+                
+                // Wort bilden
+                
                 tag[i]=zeichen;
+                zeichen=fgetc(f);
                 i++;
+                
             } //2
             
             /*
@@ -94,26 +155,27 @@ int  main(int argc, const char * argv[])
              * darauf anwenden können
              */
             
-            i=i-1;
             tag[i]='\0';
             
             /*
-             * Gibt es es gefundenen Hashtag schon in der Liste?
+             * Gibt es es das gefundene Wort schon in der Liste?
              * Falls ja, brauchen wir den da nicht mehr!
              */
             
             if ((unique(tag))!=1)
+                
             { //3
                 
                 /* Nein!
-                 * Den haben wir noch nicht, ab in die Liste!
+                 * Das haben wir noch nicht, ab in die Liste!
                  */
                 
                 add(tag,1);
                 tags++;
+                
             } //3
             
-            i=0;
+            tag_total++;            // Eines gültiges Wort mehr!
             
         } //1
         
@@ -130,7 +192,7 @@ int  main(int argc, const char * argv[])
      */
     
     fclose (f);
-    printf ("%d unique Hashtags gefunden\n",tags);
+    printf ("%d unterschiedliche Wörter von isgesammt %d gefunden\n",tags,tag_total);
     
     ausgabe();
     
@@ -144,7 +206,7 @@ int  main(int argc, const char * argv[])
  *
  */
 
-add(taged[],cnt)
+add(char taged[],cnt)
 {
     
     /*
@@ -163,7 +225,7 @@ add(taged[],cnt)
     {
         if ((anfang=malloc(sizeof(struct tags)))==NULL)
         {
-            printf ("Kein Speicher");
+            printf ("Kein Speicher\n");
             return;
         }
         else 
@@ -284,7 +346,7 @@ ausgabe()
     
     while (zeiger!=NULL)
     {
-        printf ("%s, %x\n",zeiger->tag,zeiger->count);
+        printf ("%d %s\n",zeiger->count,zeiger->tag);
         zeiger=zeiger->next;
     }
     return ;
