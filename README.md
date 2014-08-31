@@ -1,13 +1,12 @@
 Text-Tools
 ==========
 
-Eine Sammlung in C geschriebener Routinen zur Textverarveitung
-Dienst hauptsächlich dazu, die Sprache C zu lernen. 
+Eine Sammlung von in der Spache  C geschriebener Routinen zur Textverarveitung. 
 
 Übersicht:
 
 -   wordcnt.c
-    Zählt die Häufigkeit und die gesammte Anzahl von Wörtern in Textdateien
+    Zählt die Häufigkeit und die gesammte Anzahl von Wörtern in Textdateien.
 
 -   hashtag.c
     Zählt die Häfigkeit von Wörtern in Textdateien, denen ein '#'- Zeichen vorangestellt wurde
