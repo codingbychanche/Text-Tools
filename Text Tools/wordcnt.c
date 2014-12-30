@@ -224,7 +224,7 @@ add(char taged[],cnt)
         if ((anfang=malloc(sizeof(struct tags)))==NULL)
         {
             printf ("Kein Speicher\n");
-            return;
+            return (0);
         }
         else 
         {
@@ -257,7 +257,7 @@ add(char taged[],cnt)
         if ((zeiger->next=malloc(sizeof(struct tags)))==NULL) 
         {
             printf ("Kein Speicher");
-            return;
+            return(0);
         }
         
         /*
@@ -274,7 +274,7 @@ add(char taged[],cnt)
             zeiger->next=NULL;
         }
     }
-    return;
+    return(0);
 }
 
 /*
@@ -339,7 +339,7 @@ ausgabe()
     if (anfang== NULL)
     {
         printf ("Liste leer\n");
-        return;
+        return (0);
     }
     
     while (zeiger!=NULL)
@@ -347,7 +347,7 @@ ausgabe()
         printf ("%d %s\n",zeiger->count,zeiger->tag);
         zeiger=zeiger->next;
     }
-    return ;
+    return (0);
 }
 
 
