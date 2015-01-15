@@ -10,6 +10,13 @@ Eine Sammlung von in der Spache  C geschriebener Routinen zur Textverarveitung.
 
 -   hashtag.c
     Zählt die Häufigkeit von Wörtern in Textdateien, denen ein '#'- Zeichen vorangestellt wurde
+
+-   ST.IMG
+    FAT 12 Image. Enthält die beiden vorgenannten Dateien zur Verwendung mit einem Emulator oder
+    dem Original
+
+-   Ordner BIN:
+    Enthält die ausfürbare Dateien 
     
   
-B.F. 1.9.2014
+B.F. 30.12.2014
